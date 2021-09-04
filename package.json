@@ -1,7 +1,7 @@
 {
   "name": "build-a-burger",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Background Build-A-Burger is a game where you work as a short order cook. Tickets will come on a line and your job is to prepare the burgers to the specifications of those tickets. Tickets will become more complex as time goes on. Make sure to keep those customers happy, and don't burn anything.",
   "main": "index.js",
   "browserslist": [
     "defaults"
@@ -31,8 +31,9 @@
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.39.0",
     "sass-loader": "^12.1.0",
+    "three": "^0.132.2",
     "webpack": "^5.51.2",
     "webpack-cli": "^4.8.0"
-  }
-  
+  },
+  "devDependencies": {}
 }

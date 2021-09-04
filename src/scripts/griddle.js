@@ -1,0 +1,2 @@
+import {BoxModel} from 'three';
+
