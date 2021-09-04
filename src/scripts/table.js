@@ -1,4 +1,4 @@
-import {Mesh, MeshToonMaterial, BoxGeometry, LineBasicMaterial, LineSegments, EdgesGeometry, PlaneGeometry, DoubleSide} from 'three';
+import {Mesh, MeshToonMaterial, BoxGeometry, LineBasicMaterial, LineSegments, EdgesGeometry} from 'three';
 
 class Table{
   constructor(){
