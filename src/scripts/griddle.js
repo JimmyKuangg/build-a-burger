@@ -17,13 +17,14 @@ class Griddle{
     //Griddle top edges and lines
     const topEdges = new EdgesGeometry(griddleTopGeo);
     this.topLines = new LineSegments(topEdges, lineMaterial);
-
+    //Position and rotations
     this.griddleTop.position.set(15, -1.3, 86.8);
     this.topLines.position.set(15, -1.3, 86.8);
-    this.griddleBottom.position.set(15, -8.3, 83);
-    this.bottomLine.position.set(15, -8.3, 83);
     this.griddleTop.rotateX(2.02);
     this.topLines.rotateX(2.02);
+
+    this.griddleBottom.position.set(15, -8.3, 83);
+    this.bottomLine.position.set(15, -8.3, 83);
     this.griddleBottom.rotateX(2);
     this.bottomLine.rotateX(2);
   }

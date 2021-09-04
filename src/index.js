@@ -40,6 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const tableLines = table.tableLines;
   mainScene.add(tableBottom);
   mainScene.add(tableLines);
+  mainScene.add(table.board);
+  mainScene.add(table.boardLines);
+  mainScene.add(table.doorRight);
+  mainScene.add(table.doorLeft);
 
   const sceneDonut = new Donut();
   const donut = sceneDonut.donut;

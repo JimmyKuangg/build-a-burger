@@ -3,7 +3,7 @@ import { WebGLRenderer } from "three";
 class Renderer{
   constructor(){
     this.renderer = new WebGLRenderer();
-    this.renderer.setSize(1000, 700);
+    this.renderer.setSize(1200, 700);
     this.renderer.setPixelRatio(devicePixelRatio);
   }
 }
