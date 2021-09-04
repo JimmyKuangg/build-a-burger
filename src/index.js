@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(renderer.domElement);
 
   const light = new Light();
+  const ambience = new Light().ambient;
   const sun = light.sun;
   const ambient = light.ambient;
   mainScene.add(sun);
@@ -30,11 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const griddle = new Griddle();
   const griddleBottom = griddle.griddleBottom;
+  const griddleTop = griddle.griddleTop;
   const griddleBottomLines = griddle.line;
   mainScene.add(griddleBottom);
+  mainScene.add(griddleTop);
   mainScene.add(griddleBottomLines);
-  griddleBottom.position.set(12, -7.5, 77);
-  griddleBottomLines.position.set(12, -7.5, 77);
+  griddleTop.position.set(12, -0.5, 83.5);
+  griddleBottom.position.set(12, -7.5, 80);
+  griddleBottomLines.position.set(12, -7.5, 80);
+  griddleTop.rotateX(2);
   griddleBottom.rotateX(2);
   griddleBottomLines.rotateX(2);
 
