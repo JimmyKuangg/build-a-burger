@@ -4,6 +4,7 @@ import Renderer from './scripts/renderer';
 import Light from './scripts/light';
 import Plane from './scripts/floor';
 import Donut from './scripts/donut';
+import Griddle from './scripts/griddle';
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainScene = new MainScene().scene;
@@ -26,6 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
   floorLines.rotateX(2);
   floor.position.z = 40;
   floorLines.position.z = 40;
+
+  const griddle = new Griddle();
+  const griddleBottom = griddle.griddleBottom;
+  const griddleBottomLines = griddle.line;
+  mainScene.add(griddleBottom);
+  mainScene.add(griddleBottomLines);
+  griddleBottom.position.set(12, -7.5, 77);
+  griddleBottomLines.position.set(12, -7.5, 77);
+  griddleBottom.rotateX(2);
+  griddleBottomLines.rotateX(2);
 
   const sceneDonut = new Donut();
   const donut = sceneDonut.donut;

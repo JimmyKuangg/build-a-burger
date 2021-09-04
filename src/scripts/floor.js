@@ -9,6 +9,8 @@ class Plane {
     const edges = new EdgesGeometry(geo);
     this.line = new LineSegments(edges, new LineBasicMaterial({color : 0xffffff}));
   }
+
+  
 }
 
 export default Plane;
