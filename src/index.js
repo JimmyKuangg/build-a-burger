@@ -7,6 +7,7 @@ import Donut from './scripts/donut';
 import Griddle from './scripts/griddle';
 import Table from './scripts/table';
 import Wall from './scripts/wall';
+import Patty from './scripts/patty';
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainScene = new MainScene().scene;
@@ -52,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     mainScene.add(griddleWall.griddleWallOutline[i]);
   }
   mainScene.add(griddleWall.tableWall);
+
+  const patties = new Patty();
+  mainScene.add(patties.patty);
+  mainScene.add(patties.pattyOutline);
 
   const sceneDonut = new Donut();
   const donut = sceneDonut.donut;
