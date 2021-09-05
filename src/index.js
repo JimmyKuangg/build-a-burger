@@ -6,6 +6,7 @@ import Plane from './scripts/floor';
 import Donut from './scripts/donut';
 import Griddle from './scripts/griddle';
 import Table from './scripts/table';
+import Wall from './scripts/wall';
 
 document.addEventListener('DOMContentLoaded', () => {
   const mainScene = new MainScene().scene;
@@ -44,6 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
   mainScene.add(table.boardLines);
   mainScene.add(table.doorRight);
   mainScene.add(table.doorLeft);
+
+  const griddleWall = new Wall();
+  for(let i = 0 ; i < 4; i++){
+    mainScene.add(griddleWall.griddleWall[i]);
+    mainScene.add(griddleWall.griddleWallOutline[i]);
+  }
+  mainScene.add(griddleWall.tableWall);
 
   const sceneDonut = new Donut();
   const donut = sceneDonut.donut;
