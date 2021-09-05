@@ -2,52 +2,51 @@ import {Mesh, MeshToonMaterial, PlaneGeometry, EdgesGeometry, LineSegments, Line
 
 class Wall {
   constructor() {
-    //Wall behind griddle
-    const griddleWallGeo = new PlaneGeometry(20, 10);
-    const griddleWallMaterial = new MeshToonMaterial({color: 0xbdbeb0, side: DoubleSide});
-    this.griddleWall = []; //Store the 4 sections of the wall
+    const griddleWallGeo = new PlaneGeometry(1.5, 1.5);
+    const griddleWallMaterial = new MeshToonMaterial({color: 0xd7d7cb, side: DoubleSide});
+    this.griddleWall = []; 
     for(let i = 0; i < 4; i++){
       this.griddleWall.push(new Mesh(griddleWallGeo, griddleWallMaterial));
     }
-    //Griddle wall outlines
-    const lineMaterial = new LineBasicMaterial({color: 0x000000});
-    const griddleWallEdges = new EdgesGeometry(griddleWallGeo);
-    this.griddleWallOutline = [];
-    for(let i = 0; i < 4; i++){
-      this.griddleWallOutline.push(new LineSegments(griddleWallEdges, lineMaterial));
-    }
-    //Wall behind condiment table
-    const tableWallGeo = new PlaneGeometry(40, 20);
+    
+    const tableWallGeo = new PlaneGeometry(2.8, 2);
     const tableWallMaterial = new MeshToonMaterial({color: 0xf9f1b2});
     this.tableWall = new Mesh(tableWallGeo, tableWallMaterial);
-    //Table Wall Outline
+    
+    const lineMaterial = new LineBasicMaterial({color: 0x0000000});
+    const griddleWallEdges = new EdgesGeometry(griddleWallGeo);
+    this.griddleWallOutlines = [];
+    for(let i = 0; i < 4; i++){
+      this.griddleWallOutlines.push(new LineSegments(griddleWallEdges, lineMaterial));
+    }
+
     const tableWallEdges = new EdgesGeometry(tableWallGeo);
     this.tableWallOutline = new LineSegments(tableWallEdges, lineMaterial);
-    // Positioning and Rotations
-    this.griddleWall[0].position.set(10, 6, 79.3);
-    this.griddleWall[0].rotateX(0.1);
-    this.griddleWallOutline[0].position.set(10, 6, 79.3);
-    this.griddleWallOutline[0].rotateX(0.1);
 
-    this.griddleWall[1].position.set(30, 6, 79.3);
-    this.griddleWall[1].rotateX(0.1);
-    this.griddleWallOutline[1].position.set(30, 6, 79.3);
-    this.griddleWallOutline[1].rotateX(0.1);
+    this.griddleWall[0].position.set(0.86, 1.2, 0);
+    this.griddleWall[0].rotateX(0.2);
+    this.griddleWallOutlines[0].position.set(0.86, 1.2, 0);
+    this.griddleWallOutlines[0].rotateX(0.2);
 
-    this.griddleWall[2].position.set(10, 16, 79.3);
-    this.griddleWall[2].rotateX(0.1);
-    this.griddleWallOutline[2].position.set(10, 16, 79.3);
-    this.griddleWallOutline[2].rotateX(0.1);
+    this.griddleWall[1].position.set(2.36, 1.2, 0);
+    this.griddleWall[1].rotateX(0.2);
+    this.griddleWallOutlines[1].position.set(2.36, 1.2, 0);
+    this.griddleWallOutlines[1].rotateX(0.2);
 
-    this.griddleWall[3].position.set(30, 16, 79.3);
-    this.griddleWall[3].rotateX(0.1);
-    this.griddleWallOutline[3].position.set(30, 16, 79.3);
-    this.griddleWallOutline[3].rotateX(0.1);
+    this.griddleWall[2].position.set(0.87, 2.75, 0);
+    this.griddleWall[2].rotateX(0.2);
+    this.griddleWallOutlines[2].position.set(0.87, 2.75, 0);
+    this.griddleWallOutlines[2].rotateX(0.2);
 
-    this.tableWall.position.set(-20, 10, 79.3);
-    this.tableWall.rotateX(0.1);
-    this.tableWallOutline.position.set(-20,10,79.3);
-    this.tableWallOutline.rotateX(0.1);
+    this.griddleWall[3].position.set(2.372, 2.75, 0);
+    this.griddleWall[3].rotateX(0.2);
+    this.griddleWallOutlines[3].position.set(2.372, 2.75, 0);
+    this.griddleWallOutlines[3].rotateX(0.2);
+
+    this.tableWall.position.set(-1.28, 1.8, 0);
+    this.tableWall.rotateX(0.2);
+    this.tableWallOutline.position.set(-1.28, 1.8, 0);
+    this.tableWallOutline.rotateX(0.2);
   }
 }
 

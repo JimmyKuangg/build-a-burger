@@ -17,61 +17,50 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(renderer.domElement);
 
   const light = new Light();
-  const sun = light.sun;
-  const ambient = light.ambient;
-  mainScene.add(sun);
-  mainScene.add(ambient);
+  mainScene.add(light.sun);
+  mainScene.add(light.ambient);
 
   const floorModel = new Plane();
-  const floor = floorModel.floor;
-  const floorLines = floorModel.line;
-  mainScene.add(floor);
-  mainScene.add(floorLines);
-
-  const raycaster = new SceneRaycaster(mainScene, mainCamera, renderer);
+  mainScene.add(floorModel.floor);
 
   const griddle = new Griddle();
-  const griddleBottom = griddle.griddleBottom;
-  const griddleTop = griddle.griddleTop;
-  const griddleBottomLines = griddle.bottomLine;
-  const griddleTopLines = griddle.topLines;
-  mainScene.add(griddleBottom);
-  mainScene.add(griddleTop);
-  mainScene.add(griddleBottomLines);
-  mainScene.add(griddleTopLines);
+  mainScene.add(griddle.griddleBottom);
+  mainScene.add(griddle.griddleTop);
+  mainScene.add(griddle.griddleBottomOutline);
+  mainScene.add(griddle.griddleTopOutline);
 
   const table = new Table();
-  const tableBottom = table.table;
-  const tableLines = table.tableLines;
-  mainScene.add(tableBottom);
-  mainScene.add(tableLines);
+  mainScene.add(table.table);
   mainScene.add(table.board);
-  mainScene.add(table.boardLines);
   mainScene.add(table.doorRight);
   mainScene.add(table.doorLeft);
+  mainScene.add(table.tableOutline);
+  mainScene.add(table.boardOutline);
+  mainScene.add(table.doorRightOutline);
+  mainScene.add(table.doorLeftOutline);
 
   const griddleWall = new Wall();
   for(let i = 0 ; i < 4; i++){
     mainScene.add(griddleWall.griddleWall[i]);
-    mainScene.add(griddleWall.griddleWallOutline[i]);
+    mainScene.add(griddleWall.griddleWallOutlines[i]);
   }
   mainScene.add(griddleWall.tableWall);
 
   const patties = new Patty();
   mainScene.add(patties.patty);
-  //mainScene.add(patties.pattyOutline);
 
   const sceneDonut = new Donut();
   const donut = sceneDonut.donut;
-  const donutLines = sceneDonut.line;
   mainScene.add(donut);
-  mainScene.add(donutLines);
+
   //patty.material.color.setHex(0x5c360b)
-  console.log(patties.patty);
+  //console.log(patties.patty);
+
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(mainScene, mainCamera);
-    raycaster.mouseInteraction();
+    sceneDonut.rotate();
   }
-  animate();
+  document.getElementsByTagName('canvas')[0].setAttribute('id', 'view');
+  animate();  
 })

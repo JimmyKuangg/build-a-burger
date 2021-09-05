@@ -1,41 +1,49 @@
-import {Mesh, MeshToonMaterial, BoxGeometry, LineBasicMaterial, LineSegments, EdgesGeometry} from 'three';
+import {Mesh, MeshToonMaterial, BoxGeometry, LineBasicMaterial, EdgesGeometry, LineSegments} from 'three';
 
 class Table{
   constructor(){
-    //Bottom part of table / main part
-    const tableGeo = new BoxGeometry(30, 13, 10);
+    const tableGeo = new BoxGeometry(3.08, 2.66, 1);
     const tableMaterial = new MeshToonMaterial({color: 0x64696E});
     this.table = new Mesh(tableGeo, tableMaterial);
-    const lineMaterial = new LineBasicMaterial({color: 0x000000});
-    const tableEdges = new EdgesGeometry(tableGeo);
-    this.tableLines = new LineSegments(tableEdges, lineMaterial);
-    //Board of the table 
-    const boardGeo = new BoxGeometry(30, 1.8, 0.3);
+
+    const boardGeo = new BoxGeometry(3, 0.5, 0.03);
     const boardMaterial = new MeshToonMaterial({color: 0xF4BE2A});
     this.board = new Mesh(boardGeo, boardMaterial);
-    const boardEdges = new EdgesGeometry(boardGeo);
-    this.boardLines = new LineSegments(boardEdges, lineMaterial);
-    //Doors on the front of the table
-    const doorGeo = new BoxGeometry(5.5, 4, 0.1);
+
+    const doorGeo = new BoxGeometry(0.55, 0.04, 0.8);
     const doorMaterial = new MeshToonMaterial({color: 0xAAB7C7});
     this.doorRight = new Mesh(doorGeo, doorMaterial);
     this.doorLeft = new Mesh(doorGeo, doorMaterial);
-    //Position and rotations
-    this.table.position.set(-15,-5.5,87);
+
+    const lineMaterial = new LineBasicMaterial({color: 0x000000});
+    const tableEdges = new EdgesGeometry(tableGeo);
+    this.tableOutline = new LineSegments(tableEdges, lineMaterial);
+
+    const boardEdges = new EdgesGeometry(boardGeo);
+    this.boardOutline = new LineSegments(boardEdges, lineMaterial);
+
+    const doorEdges = new EdgesGeometry(doorGeo);
+    this.doorRightOutline = new LineSegments(doorEdges, lineMaterial);
+    this.doorLeftOutline = new LineSegments(doorEdges, lineMaterial);
+
+    this.table.position.set(-1.45, -0.3, 2);
     this.table.rotateX(2);
-    this.tableLines.position.set(-15,-5.5,87);
-    this.tableLines.rotateX(2);
+    this.tableOutline.position.set(-1.45, -0.3, 2);
+    this.tableOutline.rotateX(2);
 
-    this.board.position.set(-15, -2, 95.7);
+    this.board.position.set(-1.41, -0.3, 3.2);
     this.board.rotateX(2);
-    this.boardLines.position.set(-15, -2, 95.7);
-    this.boardLines.rotateX(2);
+    this.boardOutline.position.set(-1.41, -0.3, 3.2);
+    this.boardOutline.rotateX(2);
 
-    this.doorRight.position.set(-3, -5.5, 95);
-    this.doorRight.rotateX(0.3);
-
-    this.doorLeft.position.set(-8.8, -5.5, 95);
-    this.doorLeft.rotateX(0.3);
+    this.doorRight.position.set(-0.25, -0.9, 3.25);
+    this.doorRight.rotateX(2);
+    this.doorLeft.position.set(-0.84, -0.9, 3.25);
+    this.doorLeft.rotateX(2);
+    this.doorRightOutline.position.set(-0.25, -0.9, 3.25);
+    this.doorRightOutline.rotateX(2);
+    this.doorLeftOutline.position.set(-0.84, -0.9, 3.25);
+    this.doorLeftOutline.rotateX(2);
   }
 }
 
