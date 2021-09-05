@@ -11,16 +11,19 @@ class SceneRaycaster{
 
   mouseInteraction(){
     this.renderer.domElement.addEventListener('mousemove', mouse =>{
-      this.mouse.x = (mouse.clientX / this.renderer.domElement.clientWidth) * 5 - 1;
-      this.mouse.y = -(mouse.clientY / this.renderer.domElement.clientHeight) * 2 + 1;
-      this.raycaster.setFromCamera(this.mouse, this.camera);
-      console.log(mouse.clientX);
+      this.mouse.x = -((((innerWidth - 1200) / 2) - mouse.clientX) * 0.01);
+      // this.mouse.y = ((((innerHeight - 700) / 2) - mouse.clientY) * 0.01);
+      //console.log(this.mouse.x);
+      //console.log((innerWidth - 1200 ) / 2);
+      //console.log(window.innerWidth);
+      //console.log(mouse);
     });
 
     this.renderer.domElement.addEventListener('mousedown', mouse=>{
-      this.mouse.x = (mouse.clientX / this.renderer.domElement.clientWidth) * 2 - 1;
-      this.mouse.y = -(mouse.clientY / this.renderer.domElement.clientHeight) * 2 + 1;
+      this.mouse.x = -((((innerWidth - 1200) / 2) - mouse.clientX) * 0.01)
       this.raycaster.setFromCamera(this.mouse, this.camera);
+      let intercepts = this.raycaster.intersectObjects(this.scene.children);
+      console.log(intercepts[0]);
     });
   }
 

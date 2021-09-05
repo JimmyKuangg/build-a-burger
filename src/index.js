@@ -48,21 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   mainScene.add(griddleWall.tableWall);
 
-  const patties = new Patty();
-  mainScene.add(patties.patty);
-
-
-  //patty.material.color.setHex(0x5c360b)
-  //console.log(patties.patty);
-
-  window.addEventListener('resize', onWindowResize, true)
-  function onWindowResize() {
-      mainCamera.aspect = window.innerWidth / window.innerHeight
-      mainCamera.updateProjectionMatrix()
-      renderer.setSize(window.innerWidth, window.innerHeight)
-      renderer.render()
-  }
-
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(mainScene, mainCamera);
