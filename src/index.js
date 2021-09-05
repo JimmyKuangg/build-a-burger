@@ -4,17 +4,19 @@ import Renderer from './scripts/renderer';
 import Light from './scripts/light';
 import SceneRaycaster from './scripts/raycaster';
 import Plane from './scripts/floor';
-import Donut from './scripts/donut';
 import Griddle from './scripts/griddle';
 import Table from './scripts/table';
 import Wall from './scripts/wall';
 import Patty from './scripts/patty';
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const mainScene = new MainScene().scene;
   const mainCamera = new Camera().camera;
   const renderer = new Renderer().renderer;
+  const raycaster = new SceneRaycaster(mainScene, mainCamera, renderer);
   document.body.appendChild(renderer.domElement);
+  document.getElementsByTagName('canvas')[0].setAttribute('id', 'view');
 
   const light = new Light();
   mainScene.add(light.sun);
@@ -49,18 +51,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const patties = new Patty();
   mainScene.add(patties.patty);
 
-  const sceneDonut = new Donut();
-  const donut = sceneDonut.donut;
-  mainScene.add(donut);
 
   //patty.material.color.setHex(0x5c360b)
   //console.log(patties.patty);
 
+  window.addEventListener('resize', onWindowResize, true)
+  function onWindowResize() {
+      mainCamera.aspect = window.innerWidth / window.innerHeight
+      mainCamera.updateProjectionMatrix()
+      renderer.setSize(window.innerWidth, window.innerHeight)
+      renderer.render()
+  }
+
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(mainScene, mainCamera);
-    sceneDonut.rotate();
   }
-  document.getElementsByTagName('canvas')[0].setAttribute('id', 'view');
+  raycaster.mouseInteraction();
   animate();  
 })

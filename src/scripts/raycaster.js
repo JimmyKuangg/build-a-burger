@@ -14,7 +14,7 @@ class SceneRaycaster{
       this.mouse.x = (mouse.clientX / this.renderer.domElement.clientWidth) * 5 - 1;
       this.mouse.y = -(mouse.clientY / this.renderer.domElement.clientHeight) * 2 + 1;
       this.raycaster.setFromCamera(this.mouse, this.camera);
-      console.log(this.mouse.x);
+      console.log(mouse.clientX);
     });
 
     this.renderer.domElement.addEventListener('mousedown', mouse=>{
