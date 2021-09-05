@@ -2,6 +2,7 @@ import MainScene from './scripts/scene'
 import Camera from './scripts/camera';
 import Renderer from './scripts/renderer';
 import Light from './scripts/light';
+import SceneRaycaster from './scripts/raycaster';
 import Plane from './scripts/floor';
 import Donut from './scripts/donut';
 import Griddle from './scripts/griddle';
@@ -26,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const floorLines = floorModel.line;
   mainScene.add(floor);
   mainScene.add(floorLines);
+
+  const raycaster = new SceneRaycaster(mainScene, mainCamera, renderer);
 
   const griddle = new Griddle();
   const griddleBottom = griddle.griddleBottom;
@@ -56,18 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const patties = new Patty();
   mainScene.add(patties.patty);
-  mainScene.add(patties.pattyOutline);
+  //mainScene.add(patties.pattyOutline);
 
   const sceneDonut = new Donut();
   const donut = sceneDonut.donut;
   const donutLines = sceneDonut.line;
   mainScene.add(donut);
   mainScene.add(donutLines);
-  
+  //patty.material.color.setHex(0x5c360b)
+  console.log(patties.patty);
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(mainScene, mainCamera);
-    sceneDonut.rotate();
+    raycaster.mouseInteraction();
   }
   animate();
 })
