@@ -3,6 +3,7 @@ class Griddle {
     this.drawGriddleBottom();
     this.drawGriddleTop();
     this.drawGriddlePlate();
+    this.drawGriddleSections();
   }
   
   drawGriddleBottom(){
@@ -23,6 +24,17 @@ class Griddle {
     c.fill();
     c.stroke();
   }
+
+  drawGriddleSections(){
+    c.beginPath();
+    c.moveTo(825, 530);
+    c.lineTo(915, 400);
+    c.moveTo(1000, 530);
+    c.lineTo(1090, 400);
+    //c.lineTo(1,1);
+    c.stroke();
+  }
+
   
   drawGriddlePlate(){
     c.beginPath();

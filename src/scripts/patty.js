@@ -1,13 +1,13 @@
 class Patty{
   constructor(x, y){
-    this.x = x - 15;
-    this.y = y - 15;
-    this.drawPatty();
+    this.x = x - 50;
+    this.y = y - 35;
   }
 
   drawPatty(){
-    c.rect(this.x, this.y, 30, 30);
-    c.stroke();
+    let rawpatty = new Image();
+    rawpatty.src = './src/imgs/rawpatty.png';
+    c.drawImage(rawpatty, this.x, this.y);
   }
 }
 
