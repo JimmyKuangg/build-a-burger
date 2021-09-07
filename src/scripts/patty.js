@@ -39,10 +39,9 @@ class Patty{
 
   cook(){
     if (this.cooking){
-      let that = this;
-      setTimeout(function(){
-        that.patty.src = './src/imgs/sandwich.png';
-        that.drawOnGrill();
+      setTimeout(() => {
+        this.patty.src = './src/imgs/sandwich.png';
+        this.drawOnGrill();
       }, 5000);
     }
   }

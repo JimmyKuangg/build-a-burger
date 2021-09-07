@@ -11,6 +11,7 @@ class Game{
     this.patty3 = new Patty();
     this.mousePatty = new Patty();
     this.dragging = false;
+    this.mouse = {x: 0, y: 0};
   }
 
   drawAll(x, y){

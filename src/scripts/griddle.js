@@ -1,8 +1,8 @@
 class Griddle {
   constructor(){
-    this.section1Occupied = false;
-    this.section2Occupied = false;
-    this.section3Occupied = false;
+    // this.section1Occupied = false;
+    // this.section2Occupied = false;
+    // this.section3Occupied = false;
   }
   
   drawGriddle(){
@@ -57,7 +57,7 @@ class Griddle {
     if(!(y >= 400 && y <= 530)){
       return "";
     }
-
+  
     if(x >= 725 && x <= 825){
       return "section 1";
     } else if(x >= 915 && x <= 1000){

@@ -10,51 +10,54 @@ document.addEventListener('DOMContentLoaded', event => {
   let canvasOffset = canvas.getBoundingClientRect();
   let game = new Game();
 
-  canvas.addEventListener('mousedown', event => {
-    let clickX = event.clientX - canvasOffset.x;
-    let clickY = event.clientY - canvasOffset.y 
-    if ((clickX > 290 && clickX < 560) && (clickY < 700 && clickY > 600)){
+  function mousePressed(event){
+    game.mouse.x = event.clientX - canvasOffset.x;
+    game.mouse.y = event.clientY - canvasOffset.y 
+    console.log('mouse was clicked');
+    if ((game.mouse.x > 290 && game.mouse.x < 560) && (game.mouse.y < 700 && game.mouse.y > 600)){
       game.dragging = true;
     };
-  });
+  };
 
-  canvas.addEventListener('mousemove', event => {
+  function mouseMoving(event){
     if (game.dragging){
-      let mouseX = event.clientX - canvasOffset.x;
-      let mouseY = event.clientY - canvasOffset.y;
-      
-      game.drawAll();
+      console.log('mouse is moving');
+      game.mouse.x = event.clientX - canvasOffset.x;
+      game.mouse.y = event.clientY - canvasOffset.y;
     }
-  });
+  };
 
-  canvas.addEventListener('mouseup', (event) => {
-    let mouseX = event.clientX - canvasOffset.x;
-    let mouseY = event.clientY - canvasOffset.y;
+  function mouseReleased(event){
+    game.mouse.x = event.clientX - canvasOffset.x;
+    game.mouse.y = event.clientY - canvasOffset.y;
     if (game.dragging){
-      if (game.griddle.whichSection(mouseX, mouseY) === ""){
+      if (game.griddle.whichSection(game.mouse.x, game.mouse.y) === ""){
         c.clearRect(0, 0, canvas.width, canvas.height);
         game.drawAll();
       } else if(!game.patty1.cooking){
-        game.patty1.assignSection(game.griddle.whichSection(mouseX, mouseY));
+        game.patty1.assignSection(game.griddle.whichSection(game.mouse.x, game.mouse.y));
         game.patty1.cook();
       } else if (!game.patty2.cooking){
-        game.patty2.assignSection(game.griddle.whichSection(mouseX, mouseY));
+        game.patty2.assignSection(game.griddle.whichSection(game.mouse.x, game.mouse.y));
         game.patty2.cook();
       } else if (!game.patty3.cooking){
-        game.patty3.assignSection(game.griddle.whichSection(mouseX, mouseY));
+        game.patty3.assignSection(game.griddle.whichSection(game.mouse.x, game.mouse.y));
         game.patty3.cook();
       }
       game.dragging = false;
       game.drawAll();
     }
-  });
-
+  };
+  
   function start(){
-    c.clearRect(0, 0, innerWidth, innerHeight);
-    game.drawAll();
     requestAnimationFrame(start);
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    canvas.addEventListener('mousedown', mousePressed, false);
+    canvas.addEventListener('mousemove', mouseMoving, false);
+    canvas.addEventListener('mouseup', mouseReleased, false);
+    game.drawAll(game.mouse.x, game.mouse.y);
   }
 
-  requestAnimationFrame(start);
-  //game.drawAll();
+  start();
+  // game.drawAll();
 });
