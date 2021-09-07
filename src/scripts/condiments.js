@@ -1,5 +1,9 @@
 class Condiments {
   constructor(){
+    
+  }
+
+  drawCondimentsTable(){
     this.drawCondimentsBottom();
     this.drawCondimentsBoard();
     this.drawCondimentsDoors();

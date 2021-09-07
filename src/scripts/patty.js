@@ -1,13 +1,40 @@
 class Patty{
-  constructor(x, y){
-    this.x = x - 50;
-    this.y = y - 35;
+  constructor(){
+    this.cooking = false;
+    this.section = "";
   }
 
-  drawPatty(){
+  drawPatty(x, y){
     let rawpatty = new Image();
     rawpatty.src = './src/imgs/rawpatty.png';
-    c.drawImage(rawpatty, this.x, this.y);
+    c.drawImage(rawpatty, x - 50, y - 35);
+  }
+
+  assignSection(section){
+    switch(section){
+      case "section 1":
+        this.section = "section 1";
+        break;
+      case "section 2":
+        this.section = "section 2";
+        break;
+      case "section 3":
+        this.section = "section 3";
+    }
+    
+    this.cooking = true;
+  }
+
+  drawOnGrill(){
+    if(this.section === "section 1"){
+      this.drawPatty(775, 475);
+    } else if(this.section === "section 2"){
+      this.drawPatty(950, 475);
+    } else if(this.section === "section 3"){
+      this.drawPatty(1125, 475);
+    } else {
+      return;
+    }
   }
 }
 
