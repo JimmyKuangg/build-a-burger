@@ -36,6 +36,12 @@ class Patty{
       return;
     }
   }
+
+  cook(){
+    if (this.cooking){
+      setInterval(function(){alert("hello")}, 5000);
+    }
+  }
 }
 
 export default Patty;

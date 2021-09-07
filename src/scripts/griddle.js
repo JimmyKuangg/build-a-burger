@@ -10,7 +10,6 @@ class Griddle {
     this.drawGriddleTop();
     this.drawGriddlePlate();
     this.drawGriddleSections();
-   // this.coordTester();
   }
 
   drawGriddleBottom(){
@@ -38,7 +37,6 @@ class Griddle {
     c.lineTo(915, 400);
     c.moveTo(1000, 530);
     c.lineTo(1090, 400);
-    //c.lineTo(1,1);
     c.stroke(); 
   }
 
@@ -52,13 +50,6 @@ class Griddle {
     c.lineTo(633, 530);
     c.fillStyle = '#52514a'
     c.fill();
-    c.stroke();
-  }
-  
-  coordTester(){
-    c.beginPath();
-    c.moveTo(1090, 400);
-    c.lineTo(1, 1);
     c.stroke();
   }
 
