@@ -9,16 +9,17 @@ class Game{
     this.patty1 = new Patty();
     this.patty2 = new Patty();
     this.patty3 = new Patty();
+    this.mousePatty = new Patty();
     this.dragging = false;
-    this.drawAll();
   }
 
-  drawAll(){
+  drawAll(x, y){
     this.griddle.drawGriddle();
     this.condiments.drawCondimentsTable();
     if (this.patty1.cooking) this.patty1.drawOnGrill();
     if (this.patty2.cooking) this.patty2.drawOnGrill();
     if (this.patty3.cooking) this.patty3.drawOnGrill();
+    if (this.dragging) this.mousePatty.drawPatty(x, y);
   }
 
 }

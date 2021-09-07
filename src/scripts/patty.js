@@ -2,12 +2,12 @@ class Patty{
   constructor(){
     this.cooking = false;
     this.section = "";
+    this.patty = new Image();
+    this.patty.src = './src/imgs/rawpatty.png';
   }
 
   drawPatty(x, y){
-    let rawpatty = new Image();
-    rawpatty.src = './src/imgs/rawpatty.png';
-    c.drawImage(rawpatty, x - 50, y - 35);
+    c.drawImage(this.patty, x - 50, y - 35);
   }
 
   assignSection(section){
@@ -35,11 +35,15 @@ class Patty{
     } else {
       return;
     }
-  }
+  } 
 
   cook(){
     if (this.cooking){
-      setInterval(function(){alert("hello")}, 5000);
+      let that = this;
+      setTimeout(function(){
+        that.patty.src = './src/imgs/sandwich.png';
+        that.drawOnGrill();
+      }, 5000);
     }
   }
 }
