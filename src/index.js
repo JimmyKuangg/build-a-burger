@@ -73,12 +73,13 @@ document.addEventListener('DOMContentLoaded', event => {
         game.patty3.assignSection(game.whichSectionGriddle(game.mouse.x, game.mouse.y));
         game.patty3.cook();
       }
+
       game.draggingRaw = false;
       game.drawAll();
     }
 
     //On release of mouse button on top of buns
-
+    //game.whichSectionBoard(game.mouse.x, game.mouse.y);
   };
   
   function start(){

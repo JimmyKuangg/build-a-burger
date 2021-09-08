@@ -9,12 +9,20 @@ class Game{
     this.griddle = new Griddle();  
     this.condiments = new Condiments();
     //Interactive elements
+    //Patties
     this.patty1 = new Patty();
     this.patty2 = new Patty();
     this.patty3 = new Patty();
+    //Burgers
     this.burger1 = new Burger();
     this.burger2 = new Burger();
     this.burger3 = new Burger();
+    this.burger1.burgerSection.x = 40;
+    this.burger1.burgerSection.y = 500;
+    this.burger2.burgerSection.x = 250;
+    this.burger2.burgerSection.y = 500;
+    this.burger3.burgerSection.x = 460;
+    this.burger3.burgerSection.y = 500;
     //Attributes to aid in interactivity
     this.mousePatty = new Patty();
     this.draggingRaw = false;
@@ -67,6 +75,18 @@ class Game{
       return "section 3";
     } else {
       return "";
+    }
+  }
+
+  whichSectionBoard(x, y){
+    if (!(y >= 485 && y <= 550)) return "";
+
+    if(x >= 20 && x <= 165){
+       console.log("board section 1")
+    } else if (x >= 230 && x <= 355){
+      console.log("board section 2");
+    } else if (x >= 440 && x <= 565){
+      console.log("board section 3");
     }
   }
 

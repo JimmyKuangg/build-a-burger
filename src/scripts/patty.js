@@ -64,10 +64,10 @@ class Patty{
     if (this.cooking){
       setTimeout(() => {
         if(!this.flipped){
-          this.patty.src = './src/imgs/sandwich.png';
+          this.patty.src = './src/imgs/unflippedpatty.png';
           this.ready = true;
         } else {
-          this.patty.src = './src/imgs/pizza.png';
+          this.patty.src = 'src/imgs/cookedpatty.png'
           this.ready = false;
           this.cooked = true;
         }

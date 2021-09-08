@@ -12,7 +12,7 @@ In Build-A-Burger, users will be able to:
 * Have some form of timer on the cooking of the burgers
 
 ## Wireframes
-<img src=".src/imgs/wireframe.png"/>
+<img src='src/imgs/wireframe.png'/>
 
 ## Technologies, Libraries, APIs
 This project is implemented with these technologies:
