@@ -53,21 +53,21 @@ class Griddle {
     c.stroke();
   }
 
-  whichSection(x, y){
-    if(!(y >= 400 && y <= 530)){
-      return "";
-    }
+  // whichSection(x, y){
+  //   if(!(y >= 400 && y <= 530)){
+  //     return "";
+  //   }
   
-    if(x >= 725 && x <= 825){
-      return "section 1";
-    } else if(x >= 915 && x <= 1000){
-      return "section 2";
-    } else if(x >= 1090 && x <= 1200){
-      return "section 3";
-    } else {
-      return "";
-    }
-  }
+  //   if(x >= 725 && x <= 825){
+  //     return "section 1";
+  //   } else if(x >= 915 && x <= 1000){
+  //     return "section 2";
+  //   } else if(x >= 1090 && x <= 1200){
+  //     return "section 3";
+  //   } else {
+  //     return "";
+  //   }
+  // }
 }
 
 export default Griddle;

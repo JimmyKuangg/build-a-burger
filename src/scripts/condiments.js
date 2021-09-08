@@ -70,7 +70,7 @@ class Condiments {
     c.lineTo(300, 600);
     c.lineTo(560, 600);
     c.lineTo(550, 610);
-
+    
     //Left door
     c.moveTo(270, 600);
     c.lineTo(260, 610);
