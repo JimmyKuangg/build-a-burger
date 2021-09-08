@@ -3,12 +3,13 @@ class Patty{
     //Flags for the multiple stages of a patty
     this.cooking = false;
     this.ready = false;
+    this.flipped = false;
     this.flipping = false;
     //Coordinates to track where to draw
     this.x = 0;
     this.y = 0;
-    this.section = "";
-    //Patty image 
+    this.griddleSection = "";
+    //Raw patty image 
     this.patty = new Image();
     this.patty.src = './src/imgs/rawpatty.png';
     //Used in flipping
@@ -29,28 +30,28 @@ class Patty{
   assignSection(section){
     switch(section){
       case "section 1":
-        this.section = "section 1";
+        this.griddleSection = "section 1";
         break;
       case "section 2":
-        this.section = "section 2";
+        this.griddleSection = "section 2";
         break;
       case "section 3":
-        this.section = "section 3";
+        this.griddleSection = "section 3";
     }
     
     this.cooking = true;
   }
 
   drawOnGrill(){
-    if(this.section === "section 1"){
+    if(this.griddleSection === "section 1"){
       this.x = 775;
       this.y = 475;
       this.drawPatty();
-    } else if(this.section === "section 2"){
+    } else if(this.griddleSection === "section 2"){
       this.x = 950;
       this.y = 475;
       this.drawPatty();
-    } else if(this.section === "section 3"){
+    } else if(this.griddleSection === "section 3"){
       this.x = 1125;
       this.y = 475;
       this.drawPatty();
@@ -62,12 +63,17 @@ class Patty{
   cook(){
     if (this.cooking){
       setTimeout(() => {
-        this.patty.src = './src/imgs/sandwich.png';
+        if(!this.flipped){
+          this.patty.src = './src/imgs/sandwich.png';
+          this.ready = true;
+        } else {
+          this.patty.src = './src/imgs/pizza.png';
+          this.ready = false;
+          this.cooked = true;
+        }
         this.drawOnGrill();
-        this.ready = true;
       }, 6000);
     }
-
   }
 
   flip(){
@@ -81,12 +87,12 @@ class Patty{
 
   drawFlipping(){
     //Altering the y position of the patty
-    console.log(this.y);
     if(this.y > 375 && !this.peaked){ // Start raising the height of the patty
       this.y -= 2;
     } else if (this.peaked && this.y === 451){ // Hard coded numeric value, but if it stays there and is on the downward descent, change it to start cooking again
+      this.flipped = true;
       this.flipping = false;
-      this.patty.src = './src/imgs/rawpatty.png'
+      this.patty.src = './src/imgs/halfcookedpatty.png'
       this.cooking = true;
       this.cook();
     } else if (this.peaked && this.y <= 450){ // If flag is true, start descending
@@ -94,6 +100,7 @@ class Patty{
     } else if (this.y <= 375){ // If it hits the max height, set a flag to true
       this.peaked = true;
     }
+
     //Drawing the patty
     this.sourceImageX = (this.currentFrame % this.totalFrames) * this.flipWidth; // Multiply by the width of the image to tell where the drawImage function should start drawing from the source image
     this.currentFrame++; // Increment the currentFrame every animation frame

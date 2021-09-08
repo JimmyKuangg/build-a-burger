@@ -1,23 +1,33 @@
 import Griddle from './griddle.js'
 import Condiments from './condiments.js';
 import Patty from './patty.js';
+import Burger from './burger.js';
 
 class Game{
   constructor(){
+    //Background elements
     this.griddle = new Griddle();  
     this.condiments = new Condiments();
+    //Interactive elements
     this.patty1 = new Patty();
     this.patty2 = new Patty();
     this.patty3 = new Patty();
+    this.burger1 = new Burger();
+    this.burger2 = new Burger();
+    this.burger3 = new Burger();
+    //Attributes to aid in interactivity
     this.mousePatty = new Patty();
-    this.dragging = false;
+    this.draggingRaw = false;
     this.mouse = {x: 0, y: 0};
+    this.mouseClickedAt = {x: 0, y: 0};
   }
 
   drawAll(x, y){
     this.griddle.drawGriddle();
     this.condiments.drawCondimentsTable();
-
+    this.burger1.drawBurgers();
+    this.burger2.drawBurgers();
+    this.burger3.drawBurgers();
     //Checking patty1 "state"
     if (this.patty1.cooking){
       this.patty1.drawOnGrill();
@@ -37,14 +47,14 @@ class Game{
       this.patty3.drawFlipping();
     }
     //If mouse is moving and held down, draw a patty onto the mouse
-    if (this.dragging){
+    if (this.draggingRaw){
       this.mousePatty.x = x;
       this.mousePatty.y = y;
       this.mousePatty.drawPatty();
     }
   }
 
-  whichSection(x, y){
+  whichSectionGriddle(x, y){
     if(!(y >= 400 && y <= 530)){
       return "";
     }
