@@ -80,11 +80,21 @@ class Patty{
   }
 
   drawFlipping(){
-    if(this.y >= 400){
+    //Altering the y position of the patty
+    console.log(this.y);
+    if(this.y > 375 && !this.peaked){ // Start raising the height of the patty
       this.y -= 2;
-    } else {
-      this.y += 5;
+    } else if (this.peaked && this.y === 451){ // Hard coded numeric value, but if it stays there and is on the downward descent, change it to start cooking again
+      this.flipping = false;
+      this.patty.src = './src/imgs/rawpatty.png'
+      this.cooking = true;
+      this.cook();
+    } else if (this.peaked && this.y <= 450){ // If flag is true, start descending
+      this.y += 2;
+    } else if (this.y <= 375){ // If it hits the max height, set a flag to true
+      this.peaked = true;
     }
+    //Drawing the patty
     this.sourceImageX = (this.currentFrame % this.totalFrames) * this.flipWidth; // Multiply by the width of the image to tell where the drawImage function should start drawing from the source image
     this.currentFrame++; // Increment the currentFrame every animation frame
     c.drawImage(this.flippingPatty, this.sourceImageX, 0, this.flipWidth, this.flipHeight, this.x - 50, this.y - 50, this.flipWidth, this.flipHeight);
