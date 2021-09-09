@@ -13,6 +13,7 @@ class Game{
     this.patty1 = new Patty();
     this.patty2 = new Patty();
     this.patty3 = new Patty();
+    this.patties = [new Patty(), new Patty(), new Patty()];
     //Burgers
     this.burger1 = new Burger();
     this.burger2 = new Burger();
@@ -25,9 +26,12 @@ class Game{
     this.burger3.burgerSection.y = 500;
     //Attributes to aid in interactivity
     this.mousePatty = new Patty();
+    this.cookedPatty = new Patty();
+    this.cookedPatty.patty = this.cookedPatty.cookedPatty;
+    this.topBun = new Burger();
     this.draggingRaw = false;
+    this.draggingBun = false;
     this.mouse = {x: 0, y: 0};
-    this.mouseClickedAt = {x: 0, y: 0};
   }
 
   drawAll(x, y){
@@ -60,13 +64,23 @@ class Game{
       this.mousePatty.y = y;
       this.mousePatty.drawPatty();
     }
+
+    if (this.draggingCooked){
+      this.cookedPatty.x = x;
+      this.cookedPatty.y = y;
+      this.cookedPatty.drawPatty();
+    }
+
+    if (this.draggingBun){
+      this.topBun.drawTopBun(x - 30, y - 30);
+    }
   }
 
   whichSectionGriddle(x, y){
     if(!(y >= 400 && y <= 530)){
       return "";
     }
-  
+
     if(x >= 725 && x <= 825){
       return "section 1";
     } else if(x >= 915 && x <= 1000){
@@ -82,14 +96,25 @@ class Game{
     if (!(y >= 485 && y <= 550)) return "";
 
     if(x >= 20 && x <= 165){
-       console.log("board section 1")
+      return "board section 1";
     } else if (x >= 230 && x <= 355){
-      console.log("board section 2");
+      return "board section 2";
     } else if (x >= 440 && x <= 565){
-      console.log("board section 3");
+      return "board section 3";
     }
   }
 
+  resetPatty1(){
+    this.patty1 = new Patty();
+  }
+
+  resetPatty2(){
+    this.patty2 = new Patty();
+  }
+
+  resetPatty3(){
+    this.patty3 = new Patty();
+  }
 }
 
 export default Game;

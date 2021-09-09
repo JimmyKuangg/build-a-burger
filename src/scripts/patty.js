@@ -12,6 +12,9 @@ class Patty{
     //Raw patty image 
     this.patty = new Image();
     this.patty.src = './src/imgs/rawpatty.png';
+    //Cooked patty image
+    this.cookedPatty = new Image();
+    this.cookedPatty.src = 'src/imgs/cookedpatty.png';
     //Used in flipping
     this.peaked = false;
     this.flippingPatty = new Image();
@@ -67,12 +70,12 @@ class Patty{
           this.patty.src = './src/imgs/unflippedpatty.png';
           this.ready = true;
         } else {
-          this.patty.src = 'src/imgs/cookedpatty.png'
+          this.patty = this.cookedPatty;
           this.ready = false;
           this.cooked = true;
         }
         this.drawOnGrill();
-      }, 6000);
+      }, 1);
     }
   }
 
@@ -106,6 +109,7 @@ class Patty{
     this.currentFrame++; // Increment the currentFrame every animation frame
     c.drawImage(this.flippingPatty, this.sourceImageX, 0, this.flipWidth, this.flipHeight, this.x - 50, this.y - 50, this.flipWidth, this.flipHeight);
   }
+
 }
 
 export default Patty;

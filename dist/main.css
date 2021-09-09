@@ -3,10 +3,23 @@
   \*************************************************************************************************************************************/
 #view {
   border: solid 2px black;
+  overflow: hidden; 
   position: absolute;
   margin: auto;
-  top: 0px;
   bottom: 0px;
-  left: 0px;
   right: 0px;
+  left: 0px;
+  top: 0px;
+}
+
+body {
+  background-color: rgb(162, 154, 154);
+}
+
+#links{
+  float: right;
+  display: flex;
+  flex-direction: column;
+  margin-top: 300px;
+  margin-right: 100px;
 }
