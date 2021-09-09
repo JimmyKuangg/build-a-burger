@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
   //Mouse interactivity with objects
   function mousePressed(event){
+    if(!game.started){
+      game.started = true;
+    }
     game.mouse.x = event.clientX - canvasOffset.x;
     game.mouse.y = event.clientY - canvasOffset.y;
     clickedAt.x = event.clientX - canvasOffset.x;
@@ -340,7 +343,7 @@ document.addEventListener('DOMContentLoaded', event => {
     canvas.addEventListener('mousedown', mousePressed, false);
     canvas.addEventListener('mousemove', mouseMoving, false);
     canvas.addEventListener('mouseup', mouseReleased, false);
-    game.decreaseTimer();
+    if (game.started) game.decreaseTimer();
     game.drawAll(game.mouse.x, game.mouse.y);
   }
 

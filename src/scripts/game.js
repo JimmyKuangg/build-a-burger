@@ -6,6 +6,11 @@ import Burger from './burger.js';
 
 class Game{
   constructor(){
+    //Splash
+    this.started = false;
+    this.splash = new Image();
+    this.splash.src = './src/imgs/splash2.png';
+    //Points
     this.points = 0;
     //Background elements
     this.griddle = new Griddle();  
@@ -40,49 +45,60 @@ class Game{
   }
 
   drawAll(x, y){
-    this.griddle.drawGriddle();
-    this.condiments.drawCondimentsTable();
-    this.window.drawWindow();
-    this.burger1.drawBurgers();
-    this.burger2.drawBurgers();
-    this.burger3.drawBurgers();
-    //Checking patty1 "state"
-    if (this.patty1.cooking){
-      this.patty1.drawOnGrill();
-    } else if (this.patty1.flipping){
-      this.patty1.drawFlipping();
+    if (!this.started){
+      c.drawImage(this.splash, 0, 0);
     }
-    //Checking patty2 "state"
-    if (this.patty2.cooking){ 
-      this.patty2.drawOnGrill();
-    } else if (this.patty2.flipping){
-      this.patty2.drawFlipping();
-    }
-    //Checking patty3 "state"
-    if (this.patty3.cooking) {
-      this.patty3.drawOnGrill();
-    } else if (this.patty3.flipping){
-      this.patty3.drawFlipping();
-    }
-    //If mouse is moving and held down, draw a patty onto the mouse
-    if (this.draggingRaw){
-      this.mousePatty.x = x;
-      this.mousePatty.y = y;
-      this.mousePatty.drawPatty();
-    }
+    
+    if(this.started){
+      this.griddle.drawGriddle();
+      this.condiments.drawCondimentsTable();
+      this.window.drawWindow();
+      this.burger1.drawBurgers();
+      this.burger2.drawBurgers();
+      this.burger3.drawBurgers();
+      //Checking patty1 "state"
+      if (this.patty1.cooking){
+        this.patty1.drawOnGrill();
+      } else if (this.patty1.flipping){
+        this.patty1.drawFlipping();
+      }
+      //Checking patty2 "state"
+      if (this.patty2.cooking){ 
+        this.patty2.drawOnGrill();
+      } else if (this.patty2.flipping){
+        this.patty2.drawFlipping();
+      }
+      //Checking patty3 "state"
+      if (this.patty3.cooking) {
+        this.patty3.drawOnGrill();
+      } else if (this.patty3.flipping){
+        this.patty3.drawFlipping();
+      }
+      //If mouse is moving and held down, draw a patty onto the mouse
+      if (this.draggingRaw){
+        this.mousePatty.x = x;
+        this.mousePatty.y = y;
+        this.mousePatty.drawPatty();
+      }
 
-    if (this.draggingCooked){
-      this.cookedPatty.x = x;
-      this.cookedPatty.y = y;
-      this.cookedPatty.drawPatty();
-    }
+      if (this.draggingCooked){
+        this.cookedPatty.x = x;
+        this.cookedPatty.y = y;
+        this.cookedPatty.drawPatty();
+      }
 
-    if (this.draggingBun){
-      this.mouseBurger.drawTopBun(x - 30, y - 30);
-    }
+      if (this.draggingBun){
+        this.mouseBurger.drawTopBun(x - 30, y - 30);
+      }
 
-    if (this.draggingHamburger){
-      this.mouseBurger.drawHamburger(x, y);
+      if (this.draggingHamburger){
+        this.mouseBurger.drawHamburger(x, y);
+      }
+
+      c.font = "30px Arial";
+      c.fillStyle = "black";
+      c.fillText(`Score: ${this.points}`, 1000, 50);
+      c.fillText(`Time Left: ${Math.floor(this.timeLeft)}`, 1000, 100);
     }
   }
 

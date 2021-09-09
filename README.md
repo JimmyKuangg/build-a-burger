@@ -1,14 +1,14 @@
 # Build-A-Burger
 
 ## Background
-Build-A-Burger is a game where you work as a short order cook. Tickets will come on a line and your job is to prepare the burgers to the specifications of those tickets. Tickets will become more complex as time goes on. Make sure to keep those customers happy, and don't burn anything.
+Build-A-Burger is a game where you work as a short order cook. It's the lunch rush, and you're the only one on the line today. Get as many of those burgers out as possible, and don't burn anything.
 
 ## Functionality
 In Build-A-Burger, users will be able to: 
 
 * Click and drag ingredients
 * Keep a score
-* Assemble a Burger of any combination
+* Assemble burgers
 * Have some form of timer on the cooking of the burgers
 
 ## Wireframes
