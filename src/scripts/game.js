@@ -178,6 +178,7 @@ class Game{
       this.gameOver = true;
       this.started = false;
       this.timeLeft = 360;
+      this.points = 0;
       this.resetAll();
     } else {
       this.timeLeft -= 0.1;
