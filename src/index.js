@@ -291,9 +291,8 @@ document.addEventListener('DOMContentLoaded', event => {
 
     //On release of mouse on top of window with hamburger on mouse
     if(game.draggingHamburger){
-      console.log(game);
       if((game.inWindow(game.mouse.x, game.mouse.y) && game.score(game.whichSectionBoard(clickedAt.x, clickedAt.y)))){
-        alert(game.points);
+        
       }
       game.draggingHamburger = false;
     }
@@ -305,6 +304,7 @@ document.addEventListener('DOMContentLoaded', event => {
     canvas.addEventListener('mousedown', mousePressed, false);
     canvas.addEventListener('mousemove', mouseMoving, false);
     canvas.addEventListener('mouseup', mouseReleased, false);
+    game.decreaseTimer();
     game.drawAll(game.mouse.x, game.mouse.y);
   }
 

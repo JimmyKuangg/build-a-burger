@@ -36,6 +36,7 @@ class Game{
     this.draggingBun = false;
     this.draggingHamburger = false;
     this.mouse = {x: 0, y: 0};
+    this.timeLeft = 720;
   }
 
   drawAll(x, y){
@@ -152,6 +153,15 @@ class Game{
 
   inWindow(x, y){
     return ((x >= 200 && x <= 500) && (y >= 90 && y <= 340))
+  }
+
+  decreaseTimer(){
+    if (this.timeLeft <= 0){
+      alert(`Game over! Your score is ${this.points}`);
+    } else {
+      this.timeLeft -= 0.1;
+      console.log(Math.floor(this.timeLeft));
+    }
   }
 }
 
