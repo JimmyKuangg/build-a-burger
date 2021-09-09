@@ -22,8 +22,12 @@ class Condiments {
     c.lineTo(625, 605);
     c.lineTo(625, 700);
     c.lineTo(600, 700);
+    c.fillStyle = '#3b3d40';
+    c.fill();
+    c.stroke();
     
     //Get back of table
+    c.beginPath();
     c.moveTo(0, 475);
     c.lineTo(75, 400);
     c.lineTo(725, 400);
@@ -31,7 +35,7 @@ class Condiments {
     c.lineTo(0, 575);
     c.lineTo(0, 475);
 
-    c.fillStyle = '#61666a'
+    c.fillStyle = '#61666a';
     c.fill();
     c.stroke();
   }

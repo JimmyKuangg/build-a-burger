@@ -38,27 +38,63 @@ document.addEventListener('DOMContentLoaded', event => {
     //While clicking on the griddle
     if((game.whichSectionGriddle(game.mouse.x, game.mouse.y) === "section 1")){
       if(game.patty1.griddleSection === "section 1"){
-        (game.patty1.ready) ? game.patty1.flip() : game.draggingCooked = true;
-      } else if (game.patty2.griddleSection === "section 1") {
-        (game.patty2.ready) ? game.patty2.flip() : game.draggingCooked = true;
-      } else if (game.patty3.griddleSection === "section 1"){
-        (game.patty3.ready) ? game.patty3.flip() : game.draggingCooked = true;
+        if(game.patty1.ready){
+          game.patty1.flip();
+        } else if(game.patty1.cooked){
+          game.draggingCooked = true;
+        }
+      } else if(game.patty2.griddleSection === "section 1"){
+        if(game.patty2.ready){
+          game.patty2.flip();
+        } else if(game.patty2.cooked){
+          game.draggingCooked = true;
+        }
+      } else if(game.patty3.griddleSection === "section 1"){
+        if(game.patty3.ready){
+          game.patty3.flip();
+        } else if(game.patty3.cooked){
+          game.draggingCooked = true;
+        }
       }
     } else if((game.whichSectionGriddle(game.mouse.x, game.mouse.y) === "section 2")){
       if(game.patty1.griddleSection === "section 2"){
-        (game.patty1.ready) ? game.patty1.flip() : game.draggingCooked = true;
-      } else if (game.patty2.griddleSection === "section 2") {
-        (game.patty2.ready) ? game.patty2.flip() : game.draggingCooked = true;
-      } else if (game.patty3.griddleSection === "section 2"){
-        (game.patty3.ready) ? game.patty3.flip() : game.draggingCooked = true;
+        if(game.patty1.ready){
+          game.patty1.flip();
+        } else if(game.patty1.cooked){
+          game.draggingCooked = true;
+        }
+      } else if(game.patty2.griddleSection === "section 2"){
+        if(game.patty2.ready){
+          game.patty2.flip();
+        } else if(game.patty2.cooked){
+          game.draggingCooked = true;
+        }
+      } else if(game.patty3.griddleSection === "section 2"){
+        if(game.patty3.ready){
+          game.patty3.flip();
+        } else if(game.patty3.cooked){
+          game.draggingCooked = true;
+        }
       }
     } else if((game.whichSectionGriddle(game.mouse.x, game.mouse.y) === "section 3")){
       if(game.patty1.griddleSection === "section 3"){
-        (game.patty1.ready) ? game.patty1.flip() : game.draggingCooked = true;
-      } else if (game.patty2.griddleSection === "section 3") {
-        (game.patty2.ready) ? game.patty2.flip() : game.draggingCooked = true;
-      } else if (game.patty3.griddleSection === "section 3"){
-        (game.patty3.ready) ? game.patty3.flip() : game.draggingCooked = true;
+        if(game.patty1.ready){
+          game.patty1.flip();
+        } else if(game.patty1.cooked){
+          game.draggingCooked = true;
+        }
+      } else if(game.patty2.griddleSection === "section 3"){
+        if(game.patty2.ready){
+          game.patty2.flip();
+        } else if(game.patty2.cooked){
+          game.draggingCooked = true;
+        }
+      } else if(game.patty3.griddleSection === "section 3"){
+        if(game.patty3.ready){
+          game.patty3.flip();
+        } else if(game.patty3.cooked){
+          game.draggingCooked = true;
+        }
       }
     }
   };
@@ -292,7 +328,7 @@ document.addEventListener('DOMContentLoaded', event => {
     //On release of mouse on top of window with hamburger on mouse
     if(game.draggingHamburger){
       if((game.inWindow(game.mouse.x, game.mouse.y) && game.score(game.whichSectionBoard(clickedAt.x, clickedAt.y)))){
-        
+
       }
       game.draggingHamburger = false;
     }

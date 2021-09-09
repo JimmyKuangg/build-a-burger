@@ -16,10 +16,28 @@ body {
   background-color: rgb(162, 154, 154);
 }
 
+#instructions ul{
+  float: left;
+  margin-top: 300px;
+}
+
+#instructions li{
+  list-style: none;
+  max-width: 250px;
+  margin: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 #links{
   float: right;
   display: flex;
   flex-direction: column;
   margin-top: 300px;
-  margin-right: 100px;
+  margin-right: 150px;
+}
+
+#title{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 50px;
+  margin-left: 800px;
 }
