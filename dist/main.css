@@ -1,3 +1,39 @@
-#view{border:solid 2px #000;position:absolute;margin:auto;top:0px;bottom:0px;left:0px;right:0px}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+#view {
+  border: solid 2px black;
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 
-/*# sourceMappingURL=main.css.map*/
+#instructions ul {
+  max-width: 200px;
+  padding: 10px;
+}
+
+#instructions li {
+  list-style: none;
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  margin: 15px;
+}
+
+#title {
+  margin-left: 860px;
+  margin-top: 30px;
+  font-size: 30px;
+  font-family: "Work Sans", sans-serif;
+}
+
+#links {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+  margin-top: 300px;
+}
