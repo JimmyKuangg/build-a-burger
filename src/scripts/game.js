@@ -42,7 +42,8 @@ class Game{
     this.draggingBun = false;
     this.draggingHamburger = false;
     this.mouse = {x: 0, y: 0};
-    this.timeLeft = 360;
+    this.timeLeft = 60;
+    this.timerIncremeneter = 0;
   }
 
   drawAll(x, y){
@@ -181,7 +182,12 @@ class Game{
       this.points = 0;
       this.resetAll();
     } else {
-      this.timeLeft -= 0.1;
+      if (this.timerIncremeneter >= 60){
+        this.timeLeft -= 1;
+        this.timerIncremeneter = 0
+      } else {
+        this.timerIncremeneter++;
+      }
     }
   }
 
