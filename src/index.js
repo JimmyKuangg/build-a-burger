@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', event => {
       game.draggingRaw = false;
     }
 
-    // On release of mouse button on top of buns
+    // On release of mouse button on top of buns with patty on mouse
     if (game.draggingCooked){
       //Check board section 1
       if(game.whichSectionBoard(game.mouse.x, game.mouse.y) === "board section 1"){
@@ -275,6 +275,18 @@ document.addEventListener('DOMContentLoaded', event => {
       }
 
       game.draggingCooked = false;
+    }
+
+    //On release of mouse on top of buns with top bun on mouse
+    if(game.draggingBun){
+      if (game.whichSectionBoard(game.mouse.x, game.mouse.y) === "board section 1" && game.burger1.hasPatty){
+        game.burger1.addBun();
+      } else if (game.whichSectionBoard(game.mouse.x, game.mouse.y) === "board section 2" && game.burger2.hasPatty){
+        game.burger2.addBun();
+      } else if (game.whichSectionBoard(game.mouse.x, game.mouse.y) === "board section 3" && game.burger3.hasPatty){
+        game.burger3.addBun();
+      }
+      game.draggingBun = false;
     }
   };
   

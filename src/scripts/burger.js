@@ -2,9 +2,10 @@ class Burger{
   constructor(){
     this.burger = new Image();
     this.burger.src = './src/imgs/bottombun.png';
-    this.burgerSection = {x: 0, y: 0};
     this.topBun = new Image();
     this.topBun.src = './src/imgs/topbun.png';
+    this.hasPatty = false;
+    this.burgerSection = {x: 0, y: 0};
   }
 
   drawBurgers(){
@@ -14,10 +15,12 @@ class Burger{
   addPatty(){
     this.burger.src = './src/imgs/bottombunandpatty.png';
     this.burgerSection.y = 475;
+    this.hasPatty = true;
   }
 
   addBun(){
     this.burger.src = './src/imgs/fullburger.png';
+    this.burgerSection.y = 450;
   }
 
   drawTopBun(x, y){
