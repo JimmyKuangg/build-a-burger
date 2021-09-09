@@ -178,9 +178,25 @@ class Game{
       this.gameOver = true;
       this.started = false;
       this.timeLeft = 360;
+      this.resetAll();
     } else {
       this.timeLeft -= 0.1;
     }
+  }
+
+  resetAll(){
+    this.resetPatty1();
+    this.resetPatty2();
+    this.resetPatty3();
+    this.burger1 = new Burger();
+    this.burger2 = new Burger();
+    this.burger3 = new Burger();
+    this.burger1.burgerSection.x = 40;
+    this.burger1.burgerSection.y = 500;
+    this.burger2.burgerSection.x = 250;
+    this.burger2.burgerSection.y = 500;
+    this.burger3.burgerSection.x = 460;
+    this.burger3.burgerSection.y = 500;
   }
 }
 

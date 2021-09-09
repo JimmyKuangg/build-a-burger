@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', event => {
     if(!game.started){
       game.started = true;
     }
-    
+
     game.mouse.x = event.clientX - canvasOffset.x;
     game.mouse.y = event.clientY - canvasOffset.y;
     clickedAt.x = event.clientX - canvasOffset.x;
@@ -211,19 +211,16 @@ document.addEventListener('DOMContentLoaded', event => {
         } else if(clickedAt.x >= 915 && clickedAt.x <= 1000){
           if(game.patty1.griddleSection === "section 2"){
             if(game.patty1.cooked){
-              console.log("patty 1 reset");
               game.burger2.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === "section 2") {
             if(game.patty2.cooked){
-              console.log("patty 2 reset");
               game.burger2.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === "section 2"){
             if(game.patty3.cooked){
-              console.log("patty 3 reset");
               game.burger2.addPatty();
               game.resetPatty3();
             }
@@ -254,19 +251,16 @@ document.addEventListener('DOMContentLoaded', event => {
           //Check which patty is the one that is placed on griddle section 1
           if(game.patty1.griddleSection === "section 1"){
             if(game.patty1.cooked){
-              console.log("patty 1 reset");
               game.burger3.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === "section 1") {
             if(game.patty2.cooked){
-              console.log("patty 2 reset");
               game.burger3.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === "section 1"){
             if(game.patty3.cooked){
-              console.log("patty 3 reset");
               game.burger3.addPatty();
               game.resetPatty3();
             }
@@ -274,19 +268,16 @@ document.addEventListener('DOMContentLoaded', event => {
         } else if(clickedAt.x >= 915 && clickedAt.x <= 1000){
           if(game.patty1.griddleSection === "section 2"){
             if(game.patty1.cooked){
-              console.log("patty 1 reset");
               game.burger3.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === "section 2") {
             if(game.patty2.cooked){
-              console.log("patty 2 reset");
               game.burger3.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === "section 2"){
             if(game.patty3.cooked){
-              console.log("patty 3 reset");
               game.burger3.addPatty();
               game.resetPatty3();
             }
@@ -294,19 +285,16 @@ document.addEventListener('DOMContentLoaded', event => {
         } else if(clickedAt.x >= 1090 && clickedAt.x <= 1200){
           if(game.patty1.griddleSection === "section 3"){
             if(game.patty1.cooked){
-              console.log("patty 1 reset");
               game.burger3.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === "section 3") {
             if(game.patty2.cooked){
-              console.log("patty 2 reset");
               game.burger3.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === "section 3"){
             if(game.patty3.cooked){
-              console.log("patty 3 reset");
               game.burger3.addPatty();
               game.resetPatty3();
             }

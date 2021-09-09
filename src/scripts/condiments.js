@@ -1,6 +1,9 @@
 class Condiments {
   constructor(){
-    
+    this.rightDoorImage = new Image();
+    this.rightDoorImage.src = './src/imgs/rawpatty.png';
+    this.leftDoorImage = new Image();
+    this.leftDoorImage.src = './src/imgs/topbun.png';
   }
 
   drawCondimentsTable(){
@@ -92,6 +95,9 @@ class Condiments {
     c.fillStyle = '#aab7c7';
     c.fill();
     c.stroke();
+
+    c.drawImage(this.rightDoorImage, 365, 650);
+    c.drawImage(this.leftDoorImage, 85, 650);
   }
 }
 
