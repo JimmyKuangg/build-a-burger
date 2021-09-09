@@ -1,13 +1,16 @@
 import Griddle from './griddle.js'
 import Condiments from './condiments.js';
+import Window from './window.js';
 import Patty from './patty.js';
 import Burger from './burger.js';
 
 class Game{
   constructor(){
+    this.points = 0;
     //Background elements
     this.griddle = new Griddle();  
     this.condiments = new Condiments();
+    this.window = new Window();
     //Interactive elements
     //Patties
     this.patty1 = new Patty();
@@ -28,15 +31,17 @@ class Game{
     this.mousePatty = new Patty();
     this.cookedPatty = new Patty();
     this.cookedPatty.patty = this.cookedPatty.cookedPatty;
-    this.topBun = new Burger();
+    this.mouseBurger = new Burger();
     this.draggingRaw = false;
     this.draggingBun = false;
+    this.draggingHamburger = false;
     this.mouse = {x: 0, y: 0};
   }
 
   drawAll(x, y){
     this.griddle.drawGriddle();
     this.condiments.drawCondimentsTable();
+    this.window.drawWindow();
     this.burger1.drawBurgers();
     this.burger2.drawBurgers();
     this.burger3.drawBurgers();
@@ -72,7 +77,11 @@ class Game{
     }
 
     if (this.draggingBun){
-      this.topBun.drawTopBun(x - 30, y - 30);
+      this.mouseBurger.drawTopBun(x - 30, y - 30);
+    }
+
+    if (this.draggingHamburger){
+      this.mouseBurger.drawHamburger(x, y);
     }
   }
 
@@ -114,6 +123,35 @@ class Game{
 
   resetPatty3(){
     this.patty3 = new Patty();
+  }
+
+  score(section){
+    switch(section){
+      case 'board section 1':
+        this.burger1 = new Burger();
+        this.burger1.burgerSection.x = 40;
+        this.burger1.burgerSection.y = 500;
+        this.points += 1;
+        return true;
+      case 'board section 2':
+        this.burger2 = new Burger();
+        this.burger2.burgerSection.x = 250;
+        this.burger2.burgerSection.y = 500;
+        this.points += 1;
+        return true;
+      case 'board section 3':
+        this.burger3 = new Burger();
+        this.points += 1;
+        this.burger3.burgerSection.x = 460;
+        this.burger3.burgerSection.y = 500;
+        return true;
+      case "":
+        return false;
+    }
+  }
+
+  inWindow(x, y){
+    return ((x >= 200 && x <= 500) && (y >= 90 && y <= 340))
   }
 }
 

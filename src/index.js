@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', event => {
     game.mouse.y = event.clientY - canvasOffset.y;
     clickedAt.x = event.clientX - canvasOffset.x;
     clickedAt.y = event.clientY - canvasOffset.y;
+    
     //Clicking on the patty door
     if ((game.mouse.x > 290 && game.mouse.x < 560) && (game.mouse.y < 700 && game.mouse.y > 600)){
       game.draggingRaw = true;
@@ -25,6 +26,14 @@ document.addEventListener('DOMContentLoaded', event => {
     if ((game.mouse.x > 20 && game.mouse.x < 270) && (game.mouse.y < 700 && game.mouse.y > 600)){
       game.draggingBun = true;
     }
+    //Clicking on completed hamburgers
+    if (game.whichSectionBoard(clickedAt.x, clickedAt.y) === 'board section 1' && game.burger1.complete){
+      game.draggingHamburger = true;
+    } else if (game.whichSectionBoard(clickedAt.x, clickedAt.y) === 'board section 2' && game.burger2.complete){
+      game.draggingHamburger = true;
+    } else if (game.whichSectionBoard(clickedAt.x, clickedAt.y) === 'board section 3' && game.burger3.complete){
+      game.draggingHamburger = true;
+    };
 
     //While clicking on the griddle
     if((game.whichSectionGriddle(game.mouse.x, game.mouse.y) === "section 1")){
@@ -55,7 +64,7 @@ document.addEventListener('DOMContentLoaded', event => {
   };
 
   function mouseMoving(event){
-    if (game.draggingRaw || game.draggingCooked || game.draggingBun){
+    if (game.draggingRaw || game.draggingCooked || game.draggingBun || game.draggingHamburger){
       game.mouse.x = event.clientX - canvasOffset.x;
       game.mouse.y = event.clientY - canvasOffset.y;
     }
@@ -91,19 +100,16 @@ document.addEventListener('DOMContentLoaded', event => {
           //Check which patty is the one that is placed on griddle section 1
           if(game.patty1.griddleSection === "section 1"){
             if(game.patty1.cooked){
-              console.log("patty 1 reset");
               game.burger1.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === "section 1") {
             if(game.patty2.cooked){
-              console.log("patty 2 reset");
               game.burger1.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === "section 1"){
             if(game.patty3.cooked){
-              console.log("patty 3 reset");
               game.burger1.addPatty();
               game.resetPatty3();
             }
@@ -111,19 +117,16 @@ document.addEventListener('DOMContentLoaded', event => {
         } else if(clickedAt.x >= 915 && clickedAt.x <= 1000){
           if(game.patty1.griddleSection === "section 2"){
             if(game.patty1.cooked){
-              console.log("patty 1 reset");
               game.burger1.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === "section 2") {
             if(game.patty2.cooked){
-              console.log("patty 2 reset");
               game.burger1.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === "section 2"){
             if(game.patty3.cooked){
-              console.log("patty 3 reset");
               game.burger1.addPatty();
               game.resetPatty3();
             }
@@ -131,19 +134,16 @@ document.addEventListener('DOMContentLoaded', event => {
         } else if(clickedAt.x >= 1090 && clickedAt.x <= 1200){
           if(game.patty1.griddleSection === "section 3"){
             if(game.patty1.cooked){
-              console.log("patty 1 reset");
               game.burger1.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === "section 3") {
             if(game.patty2.cooked){
-              console.log("patty 2 reset");
               game.burger1.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === "section 3"){
             if(game.patty3.cooked){
-              console.log("patty 3 reset");
               game.burger1.addPatty();
               game.resetPatty3();
             }
@@ -287,6 +287,15 @@ document.addEventListener('DOMContentLoaded', event => {
         game.burger3.addBun();
       }
       game.draggingBun = false;
+    }
+
+    //On release of mouse on top of window with hamburger on mouse
+    if(game.draggingHamburger){
+      console.log(game);
+      if((game.inWindow(game.mouse.x, game.mouse.y) && game.score(game.whichSectionBoard(clickedAt.x, clickedAt.y)))){
+        alert(game.points);
+      }
+      game.draggingHamburger = false;
     }
   };
   
