@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', event => {
     if(!game.started){
       game.started = true;
     }
+    
     game.mouse.x = event.clientX - canvasOffset.x;
     game.mouse.y = event.clientY - canvasOffset.y;
     clickedAt.x = event.clientX - canvasOffset.x;

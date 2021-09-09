@@ -8,6 +8,10 @@
   right: 0px;
 }
 
+#instructions{
+  display: flex;
+  justify-content: space-between;
+}
 #instructions ul{
   max-width: 200px;
   padding: 10px;
@@ -28,9 +32,9 @@
 }
 
 #links{
-  float: right;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-right: 100px;
-  margin-top: 300px;
 }

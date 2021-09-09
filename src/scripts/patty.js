@@ -75,7 +75,7 @@ class Patty{
           this.cooked = true;
         }
         this.drawOnGrill();
-      }, 4000);
+      }, 3000);
     }
   }
 

@@ -10,6 +10,7 @@ class Game{
     this.started = false;
     this.splash = new Image();
     this.splash.src = './src/imgs/splash2.png';
+    this.gameOver = false;
     //Points
     this.points = 0;
     //Background elements
@@ -41,7 +42,7 @@ class Game{
     this.draggingBun = false;
     this.draggingHamburger = false;
     this.mouse = {x: 0, y: 0};
-    this.timeLeft = 720;
+    this.timeLeft = 360;
   }
 
   drawAll(x, y){
@@ -173,10 +174,12 @@ class Game{
 
   decreaseTimer(){
     if (this.timeLeft <= 0){
-      alert(`Game over! Your score is ${this.points}`);
+      if(!this.gameOver) alert(`Game over! Your score is ${this.points}. Start over?`);
+      this.gameOver = true;
+      this.started = false;
+      this.timeLeft = 360;
     } else {
       this.timeLeft -= 0.1;
-      console.log(Math.floor(this.timeLeft));
     }
   }
 }
