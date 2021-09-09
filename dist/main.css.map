@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAAA,MACE,sBACA,kBACA,YACA,QACA,WACA,SACA,U","sources":["webpack://build-a-burger2d/./src/index.scss"],"sourcesContent":["#view {\n  border: solid 2px black;\n  position: absolute;\n  margin: auto;\n  top: 0px;\n  bottom: 0px;\n  left: 0px;\n  right: 0px;\n}"],"names":[],"sourceRoot":""}
