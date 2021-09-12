@@ -33,3 +33,12 @@ This project is implemented with these technologies:
 * Wednesday - Styling the page and making sure everything looks pretty.
 
 * Thursday Morning - Work out any remaining problems and push to Github.
+
+## Roadmap for the Future
+* Fix up code to be more DRY
+
+* Change images of everything to a different less MS-Paint heavy style
+
+* Add more ingredients to be able to click and stack onto the burgers
+
+* Have tickets come in and order a specific burger
