@@ -3,6 +3,9 @@
 ## Background
 Build-A-Burger is a game where you work as a short order cook. It's the lunch rush, and you're the only one on the line today. Get as many of those burgers out as possible, and don't burn anything.
 
+![Screen Shot 2021-10-20 at 3 52 34 PM](https://user-images.githubusercontent.com/66882632/138208527-46393cb1-9a35-4e07-b5ad-604175ae8c5b.png)
+
+
 ## Functionality
 In Build-A-Burger, users will be able to: 
 
