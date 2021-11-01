@@ -5,28 +5,11 @@
   border: solid 2px black;
   position: absolute;
   margin: auto;
-  top: 0px;
+  top: 40px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   background-color: #c4b3b3;
-}
-
-#instructions {
-  display: flex;
-  justify-content: space-between;
-}
-
-#instructions ul {
-  max-width: 200px;
-  padding: 10px;
-}
-
-#instructions li {
-  list-style: none;
-  font-family: "Work Sans", sans-serif;
-  font-size: 18px;
-  margin: 15px;
 }
 
 #title {
@@ -39,7 +22,7 @@
 #links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-right: 100px;
+  position: fixed;
+  right: 30px;
+  top: 40%;
 }
