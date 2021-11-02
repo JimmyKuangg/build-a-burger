@@ -26,3 +26,27 @@
   right: 30px;
   top: 40%;
 }
+#links a:visited {
+  text-decoration: none;
+}
+#links i {
+  font-size: 50px;
+}
+
+#github {
+  color: black;
+  transition: color 3s;
+}
+
+#github:hover {
+  color: purple;
+}
+
+#linkedin {
+  color: black;
+  transition: color 3s;
+}
+
+#linkedin:hover {
+  color: blue;
+}

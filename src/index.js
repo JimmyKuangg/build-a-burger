@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   let clickedAt = { x: 0, y: 0 };
   let game = new Game();
 
-  console.log(c.setTransform());
+  c.setTransform();
 
   //Mouse interactivity with objects
   function mousePressed(event) {
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     game.mouse.y = event.clientY - canvasOffset.y;
     clickedAt.x = event.clientX - canvasOffset.x;
     clickedAt.y = event.clientY - canvasOffset.y;
-    console.log(game.mouse);
 
     //Clicking on the patty door
     if (
@@ -269,19 +268,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
         } else if (clickedAt.x >= 1090 && clickedAt.x <= 1200) {
           if (game.patty1.griddleSection === 'section 3') {
             if (game.patty1.cooked) {
-              console.log('patty 1 reset');
               game.burger2.addPatty();
               game.resetPatty1();
             }
           } else if (game.patty2.griddleSection === 'section 3') {
             if (game.patty2.cooked) {
-              console.log('patty 2 reset');
               game.burger2.addPatty();
               game.resetPatty2();
             }
           } else if (game.patty3.griddleSection === 'section 3') {
             if (game.patty3.cooked) {
-              console.log('patty 3 reset');
               game.burger2.addPatty();
               game.resetPatty3();
             }

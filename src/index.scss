@@ -22,4 +22,30 @@
   position: fixed;
   right: 30px;
   top: 40%;
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 50px;
+  }
+}
+
+#github {
+  color: black;
+  transition: color 3s;
+}
+
+#github:hover {
+  color: purple;
+}
+
+#linkedin {
+  color: black;
+  transition: color 3s;
+}
+
+#linkedin:hover {
+  color: blue;
 }
