@@ -71,6 +71,26 @@ drawGriddle(){
   }
 ```
 
+### Drag And Drop
+
+For my project, aside from figuring out how to ensure that the canvas clicks are registering properly, the second largest problem was figuring out how to drag and drop objects around. The drag and drop is broken into three parts for this project, the initial click, the dragging, and the release of the mouse button. Each part has an important function in order to ensure that a user can click and drag the proper objects and place them onto any of the proper areas. Below is the code used when movement of the mouse occurs while the mouse is held down.
+
+```javascript
+function mouseMoving(event) {
+  if (
+    game.draggingRaw ||
+    game.draggingCooked ||
+    game.draggingBun ||
+    game.draggingHamburger
+  ) {
+    game.mouse.x = event.clientX - canvasOffset.x;
+    game.mouse.y = event.clientY - canvasOffset.y;
+  }
+}
+```
+
+The function above checks what the user has initially clicked on, and if the mouse is held down, the function constantly updates the position of the mouse on the canvas.
+
 ## Implementation Timeline
 
 - Friday - Initial setup of the project. Get used to Three.js and how to manipulate meshes, shapes, and rotations. Attempt to render a background and kitchen.
